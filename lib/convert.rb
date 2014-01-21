@@ -2,20 +2,7 @@ require 'fileCheck'
 
 class Convert
 
- attr_accessor :header, :block1, :block2, :block3, :block4, :block5, :block6, :block7, :block8
 
-
-  def initialize
-     @header = []
-     @block1 = []
-     @block2 = []
-     @block3 = []
-     @block4 = []
-     @block5 = []
-     @block6 = []
-     @block7 = []
-     @block8 = []
-  end
 
 
   def start
