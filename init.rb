@@ -4,7 +4,7 @@
 APP_ROOT = File.dirname(__FILE__)
 $:.unshift(File.join(APP_ROOT, 'lib'))
 
-require 'convert'
+require 'gpr_sort'
 
-convert = Convert.new
-convert.start
+gpr_sort = GprSort.new
+gpr_sort.start_app

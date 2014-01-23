@@ -1,3 +1,5 @@
+require 'fileCheck'
+
 class Convert
 
  attr_accessor :header, :block1, :block2, :block3, :block4, :block5, :block6, :block7, :block8
@@ -17,7 +19,6 @@ class Convert
 
 
   def start
-
 	   file = IO.readlines('/home/jarvis/test_app/gprSorter/test_file.gpr')
            file.each_with_index do |line, index|
 
@@ -40,14 +41,43 @@ class Convert
                  elsif line.chr == '8'
                     @block8 << line
                  else 
-                    @header << line
-                    
+                    @header << line                  
                  end
            end
 
         create_first_file
         create_second_file
+        output
 
+       
+  end
+
+  def create_first_file
+
+      File.open('sample_1.gpr', 'a') do |f|
+         f.puts @header
+         f.puts @block1
+         f.puts @block2
+         f.puts @block5
+         f.puts @block6
+      end
+
+
+  end
+  
+  def create_second_file
+
+      File.open('sample_2.gpr', 'a') do |f|
+         f.puts @header
+         f.puts @block3
+         f.puts @block4
+         f.puts @block7
+         f.puts @block8
+      end
+
+  end
+
+  def output
         puts "##################Header######################"
         puts @header
         puts "##################block1######################"
@@ -66,33 +96,9 @@ class Convert
         puts @block7
         puts "##################block8######################"
         puts @block8
-
   end
 
-  def create_first_file
-
-      File.open('file1.gpr', 'a') do |f|
-         f.puts @header
-         f.puts @block1
-         f.puts @block2
-         f.puts @block5
-         f.puts @block6
-      end
-
-
-  end
   
-  def create_second_file
-
-      File.open('file2.gpr', 'a') do |f|
-         f.puts @header
-         f.puts @block3
-         f.puts @block4
-         f.puts @block7
-         f.puts @block8
-      end
-
-  end
 
 end
 
