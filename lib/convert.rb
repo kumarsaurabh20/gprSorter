@@ -6,7 +6,7 @@ class Convert
 
 
   def start
-	   file = IO.readlines('/home/jarvis/test_app/gprSorter/test_file.gpr')
+	   file = IO.readlines('file_path')
            file.each_with_index do |line, index|
 
                  next if index == 1                  
